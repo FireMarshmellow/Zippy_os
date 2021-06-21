@@ -2,11 +2,14 @@ from time import sleep
 from approxeng.input.selectbinder import ControllerResource
 import RPi.GPIO as GPIO
 
-one_0 = 17
-one_1 = 18
 
-two_0 = 22
-two_1 = 23
+
+two_0 = 18
+two_1 = 17
+
+one_0 = 23
+one_1 = 22
+
 
 red_led = 26
 blue_lsd = 20
@@ -81,6 +84,7 @@ while True:
                 allgood()
                 # This is an instance of approxeng.input.ButtonPresses
                 presses = joystick.check_presses()
+
                 #foword
                 if presses['r2']:
                     wheel_one_foword()
@@ -96,6 +100,19 @@ while True:
                 #right
                 if presses['l1']:
                     wheel_two_back()
+
+                if presses['l1']:
+                    wheel_two_back()
+
+                if presses['cross']:
+                    wheel_one_foword()
+                    wheel_two_foword()
+                
+                if presses['circle']:
+                    wheel_one_back()
+                    wheel_two_back()
+
+
 
                 #stop
                 if joystick.has_releases:
