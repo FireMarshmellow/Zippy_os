@@ -21,6 +21,7 @@ GPIO.setup(one_0, GPIO.OUT)
 GPIO.setup(one_1, GPIO.OUT)
 GPIO.setup(two_0, GPIO.OUT)
 GPIO.setup(two_1, GPIO.OUT)
+
 GPIO.setup(red_led, GPIO.OUT)
 GPIO.setup(blue_lsd, GPIO.OUT)
 GPIO.setup(green_led, GPIO.OUT)
