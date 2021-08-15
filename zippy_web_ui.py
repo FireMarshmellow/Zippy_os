@@ -43,7 +43,7 @@ print ("DOne")
 a=1
 @app.route("/")
 def index():
-    return render_template('robot.html')
+    return render_template('Zippy_web_ui.html')
 
 @app.route('/left_side')
 def left_side():

@@ -1,0 +1,101 @@
+
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    </div>
+    <center>
+        <a href="#" id="up"><br>Forward</a><br><br>
+        <a href="#" id="left">Left</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" id="right"> Right</a><br><br>
+        <a href="#" id="down"> Backward<br></a>
+    </center>
+    </div>
+
+    <style>
+        a {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#down").on("mousedown", function () {
+                $.get('/down_side');
+            }).on('mouseup', function () {
+                $.get('/stop');
+            });
+            $("#up").on("mousedown", function () {
+                $.get('/up_side');
+            }).on('mouseup', function () {
+                $.get('/stop');
+            });
+            $("#left").on("mousedown", function () {
+                $.get('/left_side');
+            }).on('mouseup', function () {
+                $.get('/stop');
+            });
+            $("#right").on("mousedown", function () {
+                $.get('/right_side');
+            }).on('mouseup', function () {
+                $.get('/stop');
+            });
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.defaultPrevented) {
+                return;
+            }
+            if (event.code === "ArrowDown") {
+                // Handle "down"
+                $.get('/down_side');
+
+            } else if (event.code === "ArrowUp") {
+                // Handle "up"
+                $.get('/up_side');
+            } else if (event.code === "ArrowLeft") {
+                // Handle "left"
+                $.get('/left_side');
+            } else if (event.code === "ArrowRight") {
+                // Handle "right"
+                $.get('/right_side');
+            }
+            event.preventDefault();
+        }, true);
+        document.addEventListener("keyup", function (event) {
+            if (event.defaultPrevented) {
+                return;
+            }
+            if (event.code === "ArrowDown") {
+                // Handle "down"
+                $.get('/stop');
+
+            } else if (event.code === "ArrowUp") {
+                // Handle "up"
+                $.get('/stop');
+            } else if (event.code === "ArrowLeft") {
+                // Handle "left"
+                $.get('/stop');
+            } else if (event.code === "ArrowRight") {
+                // Handle "right"
+                $.get('/stop');
+            }
+            event.preventDefault();
+        }, true);
+
+
+    </script>
+
+</body>
+
+</html>
